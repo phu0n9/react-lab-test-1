@@ -36,7 +36,7 @@ export default function Section() {
                 </a>
                 <a className=" button primary mt-2 w-full lg:mt-0 lg:w-auto" href={`/type/${type.id}/0`}>view lists</a>
             </div>
-            <ProductList type={type.id} />
+            <ProductList type={parseInt(type.id)} />
         </section>
         })}
         

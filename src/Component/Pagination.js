@@ -15,7 +15,7 @@ export default function Pagination({bookList,pageNum,typeId,search}) {
                 navigate(`/type/${typeId}/${parseInt(pageNum)-1}`)
             }
             else{
-                navigate(`/search/${parseInt(pageNum-1)}?keywords=${search}`)
+                navigate(`/search/${parseInt(pageNum)-1}?keywords=${search}`)
             }
         }
         else{
@@ -29,7 +29,7 @@ export default function Pagination({bookList,pageNum,typeId,search}) {
                 navigate(`/type/${typeId}/${parseInt(pageNum)+1}`)
             }
             else{
-                navigate(`/search/${parseInt(pageNum+1)}?keywords=${search}`)
+                navigate(`/search/${parseInt(pageNum)+1}?keywords=${search}`)
             }
         }
         else{

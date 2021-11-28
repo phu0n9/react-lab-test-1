@@ -28,7 +28,7 @@ export default function Booklist({typeId,pageNum}) {
                 .catch(error => {console.error(error)})
             }
             else{
-                await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/product/findByName/${pageNum}?name=${search}`)
+                await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/product/findByName/${parseInt(pageNum)}?name=${search}`)
                 .then(response => setBookList(response.data))
                 .catch(error => console.error(error))
             }
@@ -57,7 +57,7 @@ export default function Booklist({typeId,pageNum}) {
                     <Filter pageNum={pageNum}/>
                     <div className="measure section">
                     <p className="booklist-title ml-3 text-left flex-1 break-words">{type.typeName}</p>
-                        <BookGrid bookList={bookList}/>
+                        <BookGrid bookList={bookList} typeId={typeId}/>
                     </div>
                 </section>
             </main>

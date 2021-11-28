@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import '../stylesheet/Section.css'
 import gsap from "gsap";
-import Loading from '../Component/Loading'
 
 export default function ProductList(type) {
     const [books, setBooks] = useState([])
@@ -12,7 +11,7 @@ export default function ProductList(type) {
 
     useEffect(() => {
         const getBookListByType = async() => {
-            await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/type/findProductByTypeAndPage/${type.type}/${0}`,{
+            await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/type/findProductByTypeAndPage/${type.type}/0`,{
                 headers: {"Access-Control-Allow-Origin": "*"}
                 })
                 .then(response => {
@@ -23,9 +22,6 @@ export default function ProductList(type) {
         getBookListByType()
     }, [type])
 
-    if (type.length === 0) {
-        return <Loading/>
-    }
 
       //Slide click
   const slide = (shift) => {

@@ -69,13 +69,12 @@ export default function Item({type,setType}) {
                                         <div className="w-full lg:w-1/2 mr-1">
                                             <button className="button primary inline-flex w-full " name="button" value="cart" type="submit">
                                                 <img className="mr-2" src="https://rails-assets-us.bookshop.org/assets/ic_cart_light-b26a46b06b6ae40a9499157d18cb2eba8f8d81b0de5637f93ef851ea54ceae4c.svg" alt="cart"/>add to cart
-
                                             </button>
                                         </div>
                                         <div className='w-full wishlist-wrapper px-1'>
-                                            <a className="button outline add-to-wishlist inline-flex w-full" href="/">
-                                                <img className="mr-2" src="https://rails-assets-us.bookshop.org/assets/ic_wishlist_outline-59eb65d263d23e92a4fc375607f63cd7660add1b9eaed492ce5c74e4ab4876c8.svg" alt="wish-list"/>
-                                                <span className="text-secondary">add to wishlist</span>
+                                            <a className="button outline add-to-wishlist inline-flex w-full" href={`/update/${id}`}>
+                                                <img className="mr-2" src="https://rails-assets-us.bookshop.org/assets/ic_wishlist_outline-59eb65d263d23e92a4fc375607f63cd7660add1b9eaed492ce5c74e4ab4876c8.svg" alt="update"/>
+                                                <span className="text-secondary">Update</span>
                                             </a>
                                         </div>
                                     </div>

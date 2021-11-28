@@ -1,6 +1,17 @@
 import React from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
-export default function BookGrid({bookList}) {
+export default function BookGrid({bookList,typeId}) {
+    const navigate = useNavigate()
+
+    const addToCartOnClick = async (e) => {
+        await axios.delete("https://bookaroo-api.herokuapp.com/api/v1/product/"+e.target.value)
+        .then(() => {
+            navigate(`/type/${typeId}/0`)
+        })
+        .catch(error => console.error(error))
+    }
 
     return (
         <div className="booklist">
@@ -20,11 +31,9 @@ export default function BookGrid({bookList}) {
                 <div className="pb-4 self-start text-s">
                     <div className="font-sans-bold">${book.price}</div>
                 </div>
-                <form className="pt-4 col-span-2 lg:col-span-1 lg:mt-auto lg:pt-0" action="/orders/populate_remote" acceptCharset="UTF-8" method="delete">
-                    <button className="button primary inline-flex w-full " name="button" value="cart" type="submit">
-                        <img className="mr-2" src="https://rails-assets-us.bookshop.org/assets/ic_cart_light-b26a46b06b6ae40a9499157d18cb2eba8f8d81b0de5637f93ef851ea54ceae4c.svg" alt="cart"/>add to cart
-                    </button>
-                </form>
+                <button className="button primary inline-flex w-full " value={book.id} type="submit" onClick={addToCartOnClick}>
+                    <img className="mr-2" src="https://rails-assets-us.bookshop.org/assets/ic_cart_light-b26a46b06b6ae40a9499157d18cb2eba8f8d81b0de5637f93ef851ea54ceae4c.svg" alt="cart"/>add to cart
+                </button>
             </div>
             })}
         </div>

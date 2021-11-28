@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import '../stylesheet/BookList.css'
 import axios from 'axios'
+import SelectType from '../Component/SelectType'
 import { useNavigate } from 'react-router-dom';
 
 export default function Filter(pageNum) {
@@ -36,13 +37,7 @@ export default function Filter(pageNum) {
              </form>
             <p className="pl-6 pr-2 py-2 text-sm w-128">Categories</p>
                 <form action="/book" method="get" acceptCharset="UTF-8" className="pl-6 pr-2 py-2 text-sm w-128">
-                    <select name="type" onChange={selectOnChange}>
-                    {
-                        typeList.map((type,index)=>{
-                            return <option value={type.id} key={index}>{type.typeName}</option>
-                        })
-                    }
-                    </select>
+                    <SelectType typeList={typeList} selectOnChange={selectOnChange}/>
                 </form>
         </section>
     )
