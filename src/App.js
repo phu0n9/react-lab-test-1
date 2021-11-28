@@ -2,15 +2,17 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter as Router, Route,Routes} from "react-router-dom";
 import Home from './Page/Home';
-import Booklist from './Page/Booklist';
+import Book from './Page/Book';
+import BookListPage from './Page/BookListPage';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" exact element={<Home/>} />
-          {/* <Route path="/edit/:id" component={editStudent} /> */}
-        <Route path="/list" element={<Booklist/>} />
+        <Route path="/book/:id" element={<Book/>} />
+        <Route path="/type/:typeId/:pageNum" element={<BookListPage/>} />
+        <Route path="/search/:pageNum" element={<BookListPage/>} />
       </Routes>
   </Router>
   );
