@@ -10,7 +10,7 @@ export default function Item({type,setType}) {
 
     useEffect(() => {
         const getProducts = async () => {
-            await axios.get(`/api/v1/product/`+id)
+            await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/product/`+id)
             .then(response => {
                 setBook(response.data)
                 setType(response.data.type)

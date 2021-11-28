@@ -10,7 +10,7 @@ export default function Section() {
 
     useEffect(() =>{
         const getTypeList = async () =>{
-            await axios.get(`/api/v1/type`,{
+            await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/type`,{
                 headers: {"Access-Control-Allow-Origin": "*"}
             })
             .then((response) =>{

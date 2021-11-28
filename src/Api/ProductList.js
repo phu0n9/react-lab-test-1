@@ -12,7 +12,7 @@ export default function ProductList(type) {
 
     useEffect(() => {
         const getBookListByType = async() => {
-            await axios.get(`/api/v1/type/findProductByTypeAndPage/${type.type}/${0}`,{
+            await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/type/findProductByTypeAndPage/${type.type}/${0}`,{
                 headers: {"Access-Control-Allow-Origin": "*"}
                 })
                 .then(response => {

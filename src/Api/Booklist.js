@@ -21,14 +21,14 @@ export default function Booklist({typeId,pageNum}) {
     useEffect(()=>{
         const getBookList = async () => {
             if (search == null){
-                await axios.get(`/api/v1/type/findProductByTypeAndPage/${typeId}/${pageNum}`)
+                await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/type/findProductByTypeAndPage/${typeId}/${pageNum}`)
                 .then(response => {
                     setBookList(response.data)
                 })
                 .catch(error => {console.error(error)})
             }
             else{
-                await axios.get(`/api/v1/product/findByName/${pageNum}?name=${search}`)
+                await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/product/findByName/${pageNum}?name=${search}`)
                 .then(response => setBookList(response.data))
                 .catch(error => console.error(error))
             }
@@ -38,7 +38,7 @@ export default function Booklist({typeId,pageNum}) {
 
     useEffect(() =>{
         const getType = async () =>{
-            await axios.get(`/api/v1/type/${typeId}`)
+            await axios.get(`https://bookaroo-api.herokuapp.com/api/v1/type/${typeId}`)
             .then((response) =>setType(response.data))
             .catch((error) => console.error(error))
         }
