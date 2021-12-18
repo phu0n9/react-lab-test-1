@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-https://bookaroo-store.herokuapp.com/
+Access through here: https://bookaroo-store.herokuapp.com/
 
 ## Available Scripts
 
